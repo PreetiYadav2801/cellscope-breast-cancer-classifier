@@ -59,12 +59,12 @@ Precision, recall and F1 treat malignant (1) as the positive class, with zero_di
 ### Observations on model performance
 | ML Model Name | Observation about model performance |
 | --- | --- |
-| Logistic Regression | Best held-out results: accuracy 0.9912, F1 0.9880, MCC 0.9812. It found 41 of 42 malignant cases and produced no false positives (precision 1.0). The classes are close to linearly separable once the features are standardized, so a simple linear model generalizes very well. |
-| Decision Tree | Weakest model: accuracy 0.8947, recall 0.7619. It missed 10 of 42 malignant cases and flagged 2 benign cases as malignant. The depth-limited tree is easy to interpret, but its axis-aligned splits capture the boundary less well than the other models. |
-| KNN | Strong after standardization: accuracy 0.9737, F1 0.9639. It missed 2 malignant cases and gave 1 false positive. Performance depends on feature scaling and on the choice of k=7. |
-| Naive Bayes | High ranking quality (AUC 0.9884) but lower recall (0.8333) and F1 (0.8974) at the default threshold. It missed 7 malignant cases and gave 1 false positive. Many of the features are strongly correlated, which violates the independence assumption and makes its probability estimates over-confident. |
-| Support Vector Machine (SVM) | Second best: accuracy 0.9825, F1 0.9762. One malignant and one benign case were misclassified. Its AUC (0.9917) equals Logistic Regression's, so both rank cases equally well, but SVM made one more threshold error. |
-| **Overall winner** | **Logistic Regression.** It ranked first in training-only cross-validation (mean F1 0.9676, SD 0.0216), chosen before the test set was evaluated, and it also scored best on the held-out test set (F1 0.9880). SVM was second on both. |
+| Logistic Regression | The best results on the held-out test set: accuracy 0.9912, F1 0.9880 and MCC 0.9812. It caught 41 of the 42 malignant cases and never labelled a benign case as malignant (precision 1.0). Once the features are standardised, the two classes are almost linearly separable, so a simple linear model generalises very well. |
+| Decision Tree | The weakest model (accuracy 0.8947, recall 0.7619). It missed 10 of the 42 malignant cases and wrongly flagged 2 benign ones. Because its depth is limited, the tree is easy to read and explain. The catch is that it can only split on one feature at a time, so it traces the boundary between classes less accurately than the other models. |
+| KNN | Performs well once the features are standardised (accuracy 0.9737, F1 0.9639). It missed 2 malignant cases and produced 1 false positive. Its results depend heavily on proper feature scaling and on the chosen number of neighbours (k = 7). |
+| Naive Bayes | It ranks cases very well (AUC 0.9884), but at the default threshold its recall (0.8333) and F1 (0.8974) drop noticeably. It missed 7 malignant cases and gave 1 false positive. Many of the features are strongly correlated with each other, which breaks the model’s independence assumption and makes its probability estimates overconfident. |
+| Support Vector Machine (SVM) | A close second (accuracy 0.9825, F1 0.9762), with one malignant and one benign case misclassified. Its AUC (0.9917) matches Logistic Regression’s, so the two models rank cases equally well. SVM simply made one more mistake at the decision threshold. |
+| **Overall winner** | **Logistic Regression.** It came first in cross-validation on the training data (mean F1 0.9676, SD 0.0216), and it was chosen on that basis before the test set was ever used. It then also scored best on the held-out test set (F1 0.9880). SVM came second both times. |
 
 ### Training-only cross-validation (5-fold, stratified)
 | Model | CV F1 mean | CV F1 std | CV AUC mean |
