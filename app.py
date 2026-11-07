@@ -1,6 +1,6 @@
-"""Inference-only Streamlit application. Uploaded rows are never used for fitting.
+"""This Streamlit app only makes predictions. It never trains on the data uploaded.
 
-Start with:  streamlit run app.py
+To launch it, run:  streamlit run app.py
 """
 from pathlib import Path
 import json
@@ -46,9 +46,9 @@ def read_upload(uploaded):
 
 
 def main():
-    st.set_page_config(page_title='CellScope | Model Comparison', page_icon='🔬', layout='wide')
-    st.title('CellScope: five perspectives on classification')
-    st.caption('ML Assignment 2 · Breast Cancer Wisconsin Diagnostic · Educational demonstration')
+    st.set_page_config(page_title='CellScope breast cancer classifier | Model Comparison', page_icon='🔬', layout='wide')
+    st.title('CellScope breast cancer: five perspectives on classification')
+    st.caption('Breast Cancer Wisconsin Diagnostic_Educational demonstration')
     st.info('Positive class: malignant (1). Negative class: benign (0). This application is not a clinical diagnostic tool.')
 
     models = load_models()
@@ -65,7 +65,7 @@ def main():
         return
     try:
         df, X, y = read_upload(uploaded)
-    except Exception as exc:  # show any parsing/validation problem to the user instead of crashing
+    except Exception as exc:  # show any parsing/validation problem
         st.error(f'Invalid CSV: {exc}')
         return
 
