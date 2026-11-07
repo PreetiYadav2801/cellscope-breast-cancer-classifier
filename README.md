@@ -1,9 +1,9 @@
-# CellScope - ML Assignment 2
+# CellScope Breast Cancer classification
 
-Five classification models compared on the Breast Cancer Wisconsin (Diagnostic) dataset, served through an inference-only Streamlit app.
+This project compares five classification models on the Breast Cancer Wisconsin (Diagnostic) dataset. You can try them out in a Streamlit app that only makes predictions and never retrains the models.
 
 ## a. Problem statement
-Compare five supervised classification algorithms for predicting malignant versus benign breast-mass diagnosis from numeric cell-nucleus features. Each model is evaluated on the same held-out test set using six metrics, and an interactive Streamlit app evaluates the saved models on an uploaded test CSV without retraining. This is an educational exercise, not a clinical diagnostic tool.
+This project compares five supervised classification algorithms on a single task: predicting whether a breast mass is malignant or benign from numeric measurements of its cell nuclei. All five models are tested on the same held-out test set and scored on six metrics. There is also an interactive Streamlit app where you can upload a test CSV and see how the saved models perform on it. The app doesn’t retrain anything. This is a learning exercise only and is not meant for clinical diagnosis.
 
 ## b. Dataset description
 - **Dataset:** UCI Breast Cancer Wisconsin (Diagnostic).
@@ -19,9 +19,9 @@ Compare five supervised classification algorithms for predicting malignant versu
 - **Limitations:** small historical dataset, a single held-out split, strongly correlated measurements, no external clinical validation.
 
 ## c. GitHub Repository Link
-GitHub repository: **<ADD YOUR GITHUB REPOSITORY URL>**
+GitHub repository: **https://github.com/PreetiYadav2801/cellscope-breast-cancer-classifier.git**
 
-Live Streamlit app: **<ADD YOUR STREAMLIT COMMUNITY CLOUD URL>**
+Live Streamlit app: **https://cellscope-breast-cancer-classifier-ehzaygcet6hq9xsvv6cwcu.streamlit.app/**
 
 Repository contents:
 ```
